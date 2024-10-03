@@ -42,7 +42,7 @@ resources:
 | Name      | Type   | Requirement  | Description                                                                                                      |
 | --------- | ------ | ------------ | ---------------------------------------------------------------------------------------------------------------- |
 | type      | string | **Required** | `custom:config-template-card`                                                                                    |
-| entities  | list   | **Required** | List of entity strings that should be watched for updates. Templates can be used here                            |
+| entities  | list   | **Required** | List of entity strings that should be watched for updates. Templates can be used here for each individual entity, not for generation of the whole entities list. |
 | variables | list   | **Optional** | List of variables, which can be templates, that can be used in your `config` and indexed using `vars` or by name |
 | card      | object | **Optional** | Card configuration. (A card, row, or element configuaration must be provided)                                    |
 | row       | object | **Optional** | Row configuration. (A card, row, or element configuaration must be provided)                                     |
@@ -83,6 +83,11 @@ card:
 ```
 
 ### Templated entities example
+
+Each individual entity id can be generated using a template.
+
+Templating the whole `entities` key **is not** possible!
+In other words, you cannot generate the list of entities dynamically with a template.
 
 ```yaml
 type: 'custom:config-template-card'
